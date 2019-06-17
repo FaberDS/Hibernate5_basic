@@ -28,6 +28,7 @@
         <!--Add <mapping class="[package].<classname>" />-->
         <mapping class="bsd18.schuele.data.Post" />
         <mapping class="bsd18.schuele.data.User" />
+        <mapping class="bsd18.schuele.data.RegisteredUser" />
 
     </session-factory>
 </hibernate-configuration>

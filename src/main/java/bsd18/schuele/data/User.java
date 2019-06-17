@@ -3,14 +3,16 @@ package bsd18.schuele.data;
 import hibernate_support.HibernateUtil;
 import hibernate_support.ISaveAndDelete;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
-
 @Entity
+@Table(name = "user")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)    //Splits Elements Completely Objects from subclasses are not listed in the Superclass table
+//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)         // all in one table new Column is inserted with the Classname to identify the type
+//@Inheritance(strategy=InheritanceType.JOINED)             // Join the attributes of the superclass inside this table sub-attributes are stored seperately
 public class User implements ISaveAndDelete {
     @Id
+    @GeneratedValue
     private int userId;
     private String userName;
 
